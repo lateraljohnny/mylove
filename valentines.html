@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine?</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="valentines.css">
+</head>
+<body>
+  <div class="cursor"></div>
+
+  <div class="card">
+    <div class="emoji">😼💗</div>
+    <h1>May I be your valentine this year and every year from now on?</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+
+    <div class="note">PLEASE SAY YES PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE SAY YESPLEASE SAY YES PLEASE PLEASE PLEASE 
+        PLEASE PLEASE PLEASE PLEASE SAY YESPLEASE SAY YES PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE SAY YESPLEASE SAY YES 
+        PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE SAY YESPLEASE SAY YES PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE PLEASE SAY YES</div>
+  </div>
+
+  <script>
+    // Cursor tracking
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // Yes button functionality
+    const yesBtn = document.getElementById('yesBtn');
+    yesBtn.addEventListener('click', () => {
+      gsap.to('body', {
+        opacity: 0,
+        duration: 1,
+        onComplete: () => {
+          window.location.href = 'yes.html';
+        }
+      });
+    });
+
+    // No button runs away and repels cursor
+    const noBtn = document.getElementById('noBtn');
+    let canMove = true;
+    let lastMoveTime = 0;
+    const moveCooldown = 800;
+
+    // Random movement when cursor gets close
+    document.addEventListener('mousemove', (e) => {
+      if (!canMove) return;
+      
+      const currentTime = Date.now();
+      if (currentTime - lastMoveTime < moveCooldown) return;
+      
+      const noBtnRect = noBtn.getBoundingClientRect();
+      const noBtnCenterX = noBtnRect.left + noBtnRect.width / 2;
+      const noBtnCenterY = noBtnRect.top + noBtnRect.height / 2;
+      
+      const distance = Math.sqrt(Math.pow(e.clientX - noBtnCenterX, 2) + Math.pow(e.clientY - noBtnCenterY, 2));
+      
+      if (distance < 120) {
+        const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        
+        gsap.to(noBtn, {
+          left: `${randomX}px`,
+          top: `${randomY}px`,
+          duration: 0.1
+        });
+        
+        lastMoveTime = currentTime;
+      }
+    });
+
+    // No button click handler
+    noBtn.addEventListener('click', () => {
+      canMove = false;
+      gsap.killTweensOf(noBtn);
+      
+      const message = document.createElement('div');
+      message.style.position = 'fixed';
+      message.style.top = '50%';
+      message.style.left = '50%';
+      message.style.transform = 'translate(-50%, -50%)';
+      message.style.background = 'rgba(40, 40, 40, 0.95)';
+      message.style.padding = '30px';
+      message.style.borderRadius = '20px';
+      message.style.color = 'white';
+      message.style.textAlign = 'center';
+      message.style.fontSize = '20px';
+      message.style.zIndex = '10000';
+      message.style.border = '2px solid #ff1493';
+      message.textContent = "you don't love me? i love you so much i'll give you another chance.";
+      
+      document.body.appendChild(message);
+      
+      gsap.from(message, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.5
+      });
+      
+      setTimeout(() => {
+        gsap.to(message, {
+          opacity: 0,
+          duration: 0.5,
+          onComplete: () => {
+            message.remove();
+            
+            // Reset button position
+            gsap.to(noBtn, {
+              left: 'calc(50% + 20px)',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              duration: 0.5,
+              onComplete: () => {
+                canMove = true;
+              }
+            });
+          }
+        });
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>

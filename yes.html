@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="yes.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <div class="container">
+        <h1>YES? 💗</h1>
+        
+        <div class="gif-container">
+            <img src="./gif3.gif" alt="Celebration">
+        </div>
+
+        <div class="message">That's what I thought, now get ready for February 14th. I love you and text me when you finish seeing this.</div>
+
+        <button id="replayBtn">Wanna see it again cariño? Click here</button>
+    </div>
+
+    <script>
+        // Cursor tracking
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Generate floating hearts
+        function createFloatingHeart() {
+            const hearts = ['💗', '💖', '💕', '💝', '💓'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.getElementById('floating-hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 300);
+
+        // Initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                createFloatingHeart();
+            }, i * 200);
+        }
+
+        // Container animation
+        const container = document.querySelector('.container');
+        gsap.from(container, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.8,
+            ease: "back.out"
+        });
+
+        // Replay button
+        const replayBtn = document.getElementById('replayBtn');
+        replayBtn.addEventListener('click', () => {
+            gsap.to('body', {
+                opacity: 0,
+                duration: 1,
+                onComplete: () => {
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  cursor: none;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #000000, #4a148c, #ff1493, #8b008b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: #ff1493;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: transform 0.2s;
+  z-index: 9999;
+}
+
+.card {
+  background: rgba(40, 40, 40, 0.9);
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.emoji {
+  font-size: 60px;
+  margin-bottom: 20px;
+  animation: bounce 1s ease infinite;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+}
+
+.buttons {
+  position: relative;
+  height: 120px;
+  margin: 30px 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 18px;
+  position: fixed;
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+#yesBtn {
+  background: linear-gradient(45deg, #4a148c, #ff1493);
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-120%, -50%);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+  z-index: 100;
+}
+
+#yesBtn:hover {
+  transform: translate(-120%, -50%) scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+}
+
+#noBtn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(20%, -50%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  z-index: 100;
+}
+
+#noBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 24px; }
+  .emoji { font-size: 50px; }
+  .card { padding: 30px 20px; }
+  button { padding: 12px 24px; font-size: 16px; }
+}

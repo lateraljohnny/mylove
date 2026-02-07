@@ -1,23 +1,19 @@
  // Reasons database
  const reasons = [
     { 
-        text: "You’re such a kind and wonderful person, and I feel lucky to share such a good bond with you. 💖", 
-        emoji: "🌟",
+        text: "Even when I had just met you, you were so kind and sweet to me. That day, February 13th 2024, when we met on the bleachers, I was nervous and felt so out of place in Georgia but you made me feel so comfortable.", 
         gif: "gif1.gif"
     },
     { 
-        text: "May your day be filled with love, laughter, and endless joy. 🌸 ", 
-        emoji: "💗",
+        text: "As I spent more time with you, I realized how amazing you are. Your humor, beauty, and kindness immediately pulled me in like a magnet. I felt like I had known you for years, even though we had just met and began to hang out together.",
         gif: "gif2.gif"
     },
     { 
-        text: "Wishing you success, happiness, and everything your heart desires. ✨ ", 
-        emoji: "💕",
+        text: "Then when we finally started spending more time together, I was more in love with you than I ever thought. I enjoy going everywhere with you, the con, target, thrifting, the fair, spirit halloween, or just being with you. I love how we can be so cringey and not judge each other.",
         gif: "gif1.gif"
     },
     { 
-        text: "Stay the amazing girl you are—always spreading positivity around. Have the happiest year ahead! 🥳 ", 
-        emoji: "🌟",
+        text: "Finally, when we started dating, I was so happy. I love being your boyfriend. You treat me so well and I want to do the same for you. We spent christmas and new years together, and you've given me so many gifts and surprises. I love you so much.",
         gif: "gif2.gif"
     }
 ];
@@ -36,7 +32,7 @@ function createReasonCard(reason) {
     
     const text = document.createElement('div');
     text.className = 'reason-text';
-    text.innerHTML = `${reason.emoji} ${reason.text}`;
+    text.innerHTML = `${reason.text}`;
     
     const gifOverlay = document.createElement('div');
     gifOverlay.className = 'gif-overlay';
@@ -76,7 +72,7 @@ function displayNewReason() {
                 duration: 0.5,
                 ease: "elastic.out",
                 onComplete: () => {
-                    shuffleButton.textContent = "Enter Our Storylane 💫";
+                    shuffleButton.textContent = "See some of our memories <3";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {

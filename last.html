@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OUr memories</title>
+    <title>Our memories</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
 
@@ -17,16 +17,16 @@
         body {
             min-height: 100vh;
             background: linear-gradient(135deg,
-                    #ffd1dc 0%,
-                    #e6e6fa 25%,
-                    #ffefd5 50%,
-                    #e6e6fa 75%,
-                    #ffd1dc 100%);
+                    #000000 0%,
+                    #4a148c 25%,
+                    #ff1493 50%,
+                    #8b008b 75%,
+                    #000000 100%);
             background-size: 400% 400%;
             animation: gradientFlow 15s ease infinite;
             font-family: 'Quicksand', sans-serif;
             overflow-x: hidden;
-            color: #4a4a4a;
+            color: white;
         }
 
         @keyframes gradientFlow {
@@ -118,7 +118,7 @@
         .heart {
             position: absolute;
             font-size: 1.5rem;
-            color: rgba(255, 105, 180, 0.6);
+            color: rgba(255, 20, 147, 0.6);
             animation: floatHeart var(--float-duration, 6s) ease-in-out infinite;
             animation-delay: var(--delay, 0s);
         }
@@ -144,7 +144,7 @@
         .welcome h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 4rem;
-            color: #ff69b4;
+            color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             animation: fadeInScale 2s ease;
         }
@@ -155,22 +155,23 @@
             margin: 1.5rem auto;
             line-height: 1.6;
             animation: fadeIn 2s ease 0.5s both;
+            color: white;
         }
 
         /* Enhanced Memory Cards */
         .memory-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
             z-index: 3;
             position: relative;
         }
 
         .memory-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(40, 40, 40, 0.9);
             border-radius: 20px;
             padding: 1.5rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -215,7 +216,7 @@
 
         .memory-date {
             font-family: 'Dancing Script', cursive;
-            color: #ff69b4;
+            color: #ff1493;
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
@@ -223,14 +224,14 @@
         .memory-caption {
             font-size: 1rem;
             line-height: 1.5;
-            color: #666;
+            color: white;
         }
 
         /* Final Message Section */
         .final-message {
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(40, 40, 40, 0.5);
             backdrop-filter: blur(10px);
             margin-top: 3rem;
             position: relative;
@@ -240,7 +241,7 @@
         .final-message h2 {
             font-family: 'Dancing Script', cursive;
             font-size: 3rem;
-            color: #ff69b4;
+            color: white;
             margin-bottom: 2rem;
             animation: heartbeat 2s infinite;
         }
@@ -262,26 +263,27 @@
             max-width: 800px;
             margin: 0 auto 2rem;
             line-height: 1.8;
+            color: white;
         }
 
         .goodbye-btn {
             display: inline-block;
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background: linear-gradient(45deg, #ff69b4, #da70d6);
+            background: linear-gradient(45deg, #4a148c, #ff1493);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
             animation: float 3s infinite ease-in-out;
         }
 
         .goodbye-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
         }
 
         @keyframes float {
@@ -338,7 +340,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #ff69b4, #da70d6);
+            background: linear-gradient(45deg, #4a148c, #ff1493);
             border-radius: 6px;
         }
 
@@ -371,39 +373,62 @@
     </div>
 
     <section class="welcome">
-        <h1>Our Beautiful Moments Together</h1>
-        <p>Every moment spent with you has been magical. Let's cherish these precious memories ...</p>
+        <h1>Our Moments Together</h1>
+        <p>
+            From the moment I met you, all those years ago, not a day has gone by when I haven't thought of you. And now that I'm with you again... I'm in agony. The closer I get to you, the worse it gets. 
+            The thought of not being with you... I can't breathe. I'm haunted by the kiss that you should never have given me. My heart is beating... hoping that kiss will not become a scar. You are in 
+            my very soul, tormenting me... what can I do? I will do anything you ask. If you are suffering as much as I am, please tell me.
+        </p>
     </section>
 
     <div class="memory-container">
         <div class="memory-card">
-            <img src="./d1.jpg" alt="First Date" class="memory-img">
-            <div class="memory-date">Her Smile Says It All</div>
-            <div class="memory-caption">You’re truly one of the sweetest girls I know, and I feel lucky to have a sis
-                like you.❤️</div>
+            <img src="./d1.jpg" alt="concert" class="memory-img">
+            <div class="memory-date">Your Style Says It All</div>
+            <div class="memory-caption">I always thought you looked so cute and pretty in your outfits. I enjoy seeing you in all your different styles and outfits and the rush I get when I see you in something new.</div>
         </div>
         <div class="memory-card">
-            <img src="./d2.jpg" alt="Beach Day" class="memory-img">
-            <div class="memory-date">Together Vibes</div>
-            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless
-                smiles.😊💕</div>
+            <img src="./d2.jpg" alt="matching pjs" class="memory-img">
+            <div class="memory-date">My Emergency Contact</div>
+            <div class="memory-caption">I'm sure you know this by know by this song reminds me of you so much.. It goes a little like this: <br>
+                <br>
+                                        "...Therapy is tiring<br>
+                                        But so is hiding how you feel<br>
+                                        You can bring the villain in<br>
+                                        And I can bring the sex appeal...<br>
+                                        Waiting for the start of<br>
+                                        Things that I want, this happily ever after<br>
+                                        You choke on your words, but you swallow them faster<br>
+                                        I sleep on the couch while you're passed out in the back<br>
+                                        Just want you to be my emergency contact<br>
+                                        You're my angel<br>
+                                        You're a fucking angel<br>
+                                        You're my angel<br>
+                                        All mine<br>
+                                        Mine<br>
+                                        Mine, mine<br>
+                                        Mine"<br><br>
+                                        Being with you is like a dream come true. I feel so lucky to have you in my life. You are my best friend and the love of my life. 
+                                        This picture is one of my favorite memories with you. 
+                                        I love how we can match pjs and I hope we continue to do so.
+            </div>
         </div>
         <div class="memory-card">
-            <img src="./d3.jpg" alt="Movie Night" class="memory-img">
+            <img src="./d3.jpg" alt="mall" class="memory-img">
             <div class="memory-date">Pretty Soul</div>
-            <div class="memory-caption">Keep being the amazing person you are—you make every moment brighter.🌸💖</div>
+            <div class="memory-caption">You always try to be respectful and kind to everyone around you. You always offer to help others and me. 
+                I admire you so much and your ability to be so caring and thoughtful. I find that part of you so pretty, not just your looks. I'm so lucky to be with you.</div>
         </div>
-
     </div>
 
     <section class="final-message">
-        <h2>Thank You for the Memories</h2>
-        <p>Every laugh, every chat, and every moment we’ve shared has been truly special.💫<br>
-            I’m so grateful for the bond we have, and for the positivity you always bring into my life.<br>
-            On your birthday, I just wish for endless happiness, love, and success to come your way.🌸</p>
-        <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
-        <a href="#" class="goodbye-btn">Until We Meet Again 💝</a>
+        <h2>Thank You For Letting Me Be Your Boyfriend</h2>
+        <p>Every laugh, every talk, every freak, and every moment we've shared has been truly special to me.<br>
+            I'm so grateful for what we have, and for the happiness you always bring into my life.<br>
+            This all for you and to wish you a happy 20th birthday. <br>
+            I hope we celebrate all your birthdays after this one together. Always.</p>
+        <p>You deserve the whole world and all the love in it. I love you Lesley.. to the moon and back. </p>
+        <a href="valentines.html" class="goodbye-btn">Finally... click here</a>
     </section>
 </body>
-
 </html>
