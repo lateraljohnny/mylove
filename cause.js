@@ -2,19 +2,19 @@
  const reasons = [
     { 
         text: "Even when I had just met you, you were so kind and sweet to me. That day, February 13th 2024, when we met on the bleachers, I was nervous and felt so out of place in Georgia but you made me feel so comfortable.", 
-        gif: "gif1.gif"
+        gif: "gif1.mp4"
     },
     { 
         text: "As I spent more time with you, I realized how amazing you are. Your humor, beauty, and kindness immediately pulled me in like a magnet. I felt like I had known you for years, even though we had just met and began to hang out together.",
-        gif: "gif2.gif"
+        gif: "gif2.mp4"
     },
     { 
         text: "Then when we finally started spending more time together, I was more in love with you than I ever thought. I enjoy going everywhere with you, the con, target, thrifting, the fair, spirit halloween, or just being with you. I love how we can be so cringey and not judge each other.",
-        gif: "gif1.gif"
+        gif: "gif1.mp4"
     },
     { 
         text: "Finally, when we started dating, I was so happy. I love being your boyfriend. You treat me so well and I want to do the same for you. We spent christmas and new years together, and you've given me so many gifts and surprises. I love you so much.",
-        gif: "gif2.gif"
+        gif: "gif2.mp4"
     }
 ];
 
@@ -36,7 +36,7 @@ function createReasonCard(reason) {
     
     const gifOverlay = document.createElement('div');
     gifOverlay.className = 'gif-overlay';
-    gifOverlay.innerHTML = `<img src="${reason.gif}" alt="Friendship Memory">`;
+    gifOverlay.innerHTML = `<video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;"><source src="${reason.gif}" type="video/mp4"><img src="${reason.gif.replace('.mp4', '.gif')}" alt="Friendship Memory" style="width: 100%; height: 100%; object-fit: cover;"></video>`;
     
     card.appendChild(text);
     card.appendChild(gifOverlay);
